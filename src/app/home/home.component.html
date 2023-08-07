@@ -1,0 +1,26 @@
+
+<div class="container">
+    <h1>Welcome to our website</h1>
+  
+    <form>
+      <div class="form-group">
+        <label for="piAmount">Enter Pi amount:</label>
+        <input type="number" class="form-control" id="piAmount" [(ngModel)]="piAmount" name="piAmount" required (ngModelChange)="onFormSubmit()">
+      </div>
+     <div *ngIf="amountInDollars">
+      You will receive {{ amountInDollars | number: '1.1-2' }}$
+    </div>
+      <button type="button" class="btn btn-primary" (click)="showForm = true" >Sell</button>
+     <div *ngIf="showForm">
+        <h2>Enter Your Wallet Information</h2>
+        <div class="form-group">
+          <label for="walletName">Wallet:</label>
+          <input type="text" class="form-control" id="walletName" name="walletName" required>
+        </div>
+       
+        <button type="button" class="btn btn-primary" (click)="submitForm()">Submit</button>
+      </div>
+    </form>
+   
+
+  </div>
